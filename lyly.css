@@ -1,0 +1,112 @@
+
+  li {
+    float: left;
+  }
+   
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;  
+    min-width: 160px;
+    z-index: 10;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+  body {
+    margin-top:0;
+     padding:0;
+     display: flex;
+     justify-content:center;
+     align-items:center;
+     height:100vh;
+     background:#112c38;
+     cursor: url("../image/con-tro-hinh-anh.png"), auto;
+   }
+  body {
+    background-image: url("/image/hinhnen01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+  }
+   
+   ul{
+     margin:0;
+     padding:0;
+     display:flex;
+   }
+   
+   ul li{
+     list-style:none;
+     margin:0 20px;
+     transition:0.5s;
+   }
+   
+   ul li a{
+     display: block;
+     position:relative;
+     text-decoration:none;
+     padding:5px;
+     font-size:18px;
+     text-shadow: 2px 2px 4px #e71515;
+     font-family: sans-serif;
+     color:rgb(0, 0, 0);
+     text-transform:uppercase;
+     transition:0.5s;
+     border: 2px solid rgb(255, 255, 255);
+     border-radius: 9px;
+   }
+   
+   ul:hover li a{
+     transform:scale(1.5);
+     opacity:0.2;
+     filter:blur(5px);
+     cursor: url("../image/con-tro-hinh-anh.png"), auto;
+   }
+   
+   ul li a:hover{
+     transform:scale(2);
+     opacity:1;
+     filter:blur(0);
+     text-decoration:none;
+     color:rgb(255, 255, 255);
+     text-shadow: 2px 2px 4px #000000;
+     border: 2px solid rgb(0, 0, 0);
+   }
+   
+   ul li a:before{
+     content:'';
+     position:absolute;
+     top:0;
+     left:0;
+     width:100%;
+     height:100%;
+     background-image:linear-gradient(to right bottom ,#e8670b ,#38b838);
+     transition:0.5s;
+     transform-origin:right;
+     transform:scaleX(0);
+     z-index:-1;
+     border-radius: 9px;
+   }
+   
+   ul li a:hover:before{
+     transition:transform 2s;
+     transform-origin:left;
+     transform:scaleX(1);
+   }
