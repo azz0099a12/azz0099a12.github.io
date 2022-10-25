@@ -11,7 +11,7 @@
 
 body {
   background-color: #f5f5f5;
-  cursor: url("../image/con-tro-hinh-anh.png"), auto;
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
   background-image: url("/image/hinhnen01.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ body {
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  cursor: url("../image/con-tro-hinh-anh.png"), auto;
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
 }
 
 .player {
@@ -48,7 +48,7 @@ html {
   top: 0;
   width: 100%;
   max-width: 480px;
-  border-bottom: 1px solid #ebebeb;
+  border-radius: 10px;
 }
 
 /* HEADER */
@@ -124,16 +124,18 @@ header h2 {
   opacity: 0.7;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
 }
 
 .progress::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 12px;
-  height: 6px;
+  width: 30px;
+  height: 30px;
   background-color: var(--primary-color);
   border-radius: 100rem;
   cursor: pointer;
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
 }
 
 /* PLAYLIST */
@@ -151,12 +153,12 @@ header h2 {
 .playlist::-webkit-scrollbar-thumb{
   background-image:linear-gradient(to right bottom ,#f4c9c9 ,#312e2e);
   background: rgba(0,0,0,0.0);
-  border-radius: 100rem;
+  border-radius: 500px;
 
 }
 .playlist::-webkit-scrollbar-track{
   background-color: #333;
-  border-radius: 100rem;
+  border-radius: 500px;
   background-image:linear-gradient(to  bottom ,#ecefeb ,#439941);
   background: rgba(0,0,0,0.0);
 }
@@ -167,7 +169,7 @@ header h2 {
   margin-bottom: 12px;
   background: rgba(0,0,0,0.2);
   padding: 8px 16px;
-  border-radius: 5px;
+  border-radius: 500px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   
 }

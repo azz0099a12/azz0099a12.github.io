@@ -85,9 +85,13 @@
      opacity:1;
      filter:blur(0);
      text-decoration:none;
-     color:rgb(255, 255, 255);
-     text-shadow: 2px 2px 4px #000000;
-     border: 2px solid rgb(0, 0, 0);
+     text-shadow: 2px 2px 4px #d9f100;
+     font-family: sans-serif;
+     color:rgb(0, 0, 0);
+    border: 4px solid #7fffd4;
+    filter: hue-rotate(120deg);
+    border-radius: 20px;
+     
    }
    
    ul li a:before{
@@ -96,15 +100,19 @@
      top:0;
      left:0;
      width:100%;
-     height:100%;
-     background-image:linear-gradient(to right bottom ,#e8670b ,#38b838);
+     height:100%; color: #000;
+     background: #7fffd4;
+     box-shadow: 0 0 10px #7fffd4,
+                 0 0 25px #7fffd4,
+                 0 0 50px #7fffd4;
      transition:0.5s;
      transform-origin:right;
      transform:scaleX(0);
      z-index:-1;
      border-radius: 9px;
+    
    }
-   
+
    ul li a:hover:before{
      transition:transform 2s;
      transform-origin:left;
