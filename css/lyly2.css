@@ -93,13 +93,13 @@ header h2 {
 }
 
 .control .btn {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   padding: 18px;
   font-size: 18px;
 }
 
 .control .btn.active {
-  color: var(--primary-color);
+  color:#f5f5f5;
 }
 /* nut play */
 .control .btn-toggle-play {
