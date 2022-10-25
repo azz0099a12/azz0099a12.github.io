@@ -132,7 +132,8 @@ header h2 {
   appearance: none;
   width: 30px;
   height: 30px;
-  background-color: var(--primary-color);
+  background-image: url("../image/tronhac-removebg-preview.png");
+  filter: hue-rotate(1000deg);
   border-radius: 100rem;
   cursor: pointer;
   cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;

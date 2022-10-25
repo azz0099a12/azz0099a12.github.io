@@ -147,7 +147,8 @@
     appearance: none;
     width: 30px;
     height: 30px;
-    background-color: #7fffd4;
+    background-image: url("../image/tronhac-removebg-preview.png");
+    filter: hue-rotate(190deg);
     border-radius: 100rem;
     cursor: pointer; 
     cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto; 
