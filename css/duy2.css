@@ -1,366 +1,366 @@
 :root {
-    --primary-color: #00c3ff19;
-    --text-color: rgb(255, 255, 255);
-    cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
-  }
-  header {
-    --primary-color: #fffcfc;
-    --text-color: rgba(170, 243, 0, 0.558);
-  }
-  * {
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
-  }
-  
-  body {
-    background-color: #f5f5f5;
-    background-image: url("/image/A\ Bust\ With\ a\ Skull\ Mask\ and\ Neon\ Lights\ OC\ wallpaper\ in\ 1920x1080\ resolution.jfif");
-    background-size: cover;
-    background-repeat: no-repeat;
-  
-  }
-  html {
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .player {
-    position: relative;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  
-  .player .icon-pause {
-    display: none;
-  }
-  
-  .player.playing .icon-pause {
-    display: inline-block;
-  }
-  
-  .player.playing .icon-play {
-    display: none;
-  }
-  
-  .dashboard {
-    padding: 16px 16px 14px;
-   background: rgba(0,0,0,0.2);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-width: 480px;
-    
-  }
-  
-  /* HEADER */
-  header {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  header h4 {
-    color: var(--primary-color);
-    font-size: 12px;
-  }
-  
-  header h2 {
-    color: var(--text-color);
-    font-size: 20px;
-  }
-  
-  
-  /* CD */
-  .cd-thumb {
-    display: flex;
-    margin-top: 0px;;
-    width: 100%;
-    padding-top: 100%;
-    border-radius: 50%;
-    background-color: #333;
-    background-size: cover;
-  } 
-  .cd {
-    display: flex;
-    margin: auto;
-    width: 200px;
-    margin-left: 90px;
-    margin-top: 0%;
+  --primary-color: #00c3ff19;
+  --text-color: rgb(255, 255, 255);
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
+}
+header {
+  --primary-color: #fffcfc;
+  --text-color: rgba(170, 243, 0, 0.558);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
 
-  }
-  .cdquay {
-    padding: 16px 16px 14px;
-   
-    position: fixed;
-    top: 400;
-    height: 100%;
-    width: 100%;
-    max-width: 480px;
-    
-  }
-  
-  /* CONTROL */
-  .control {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 18px 0 8px 0;
-  }
-  
-  .control .btn {
-    color: rgb(0, 0, 0);
-    padding: 18px;
-    font-size: 18px;
-  }
-  
-  .control .btn.active {
-    color: #f5f5f5;
-  }
-  /* nut play */
-  .control .btn-toggle-play {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary-color);
-  }
-  /* thanh chạy nhạc */
-  .progress {
-    width: 100%;
-    -webkit-appearance: none;
-    height: 6px;
-    background: #d3d3d3;
-    outline: none;
-    border-radius: 100rem;
-    opacity: 0.7;
-    -webkit-transition: 0.2s;
-    transition: opacity 0.2s;
-    cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto; 
-  }
-  
-  .progress::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 30px;
-    height: 30px;
-    background-image: url("../image/tronhac-removebg-preview.png");
-    filter: hue-rotate(190deg);
-    border-radius: 100rem;
-    cursor: pointer; 
-    cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto; 
-  }
-  
-  /* PLAYLIST */
-  .playlist {
-    width: 900px;
-    height: 312px;
-    margin-top: -270px;
-    margin-left: 370px;
-    padding: 12px;
-    overflow-Y:scroll;
-  }
-  /* chỉnh cuộn chột cho danh sách bài hát playlit*/
-  .playlist::-webkit-scrollbar {
-    width: 10px;
-  }
-  .playlist::-webkit-scrollbar-thumb{
-    background-image:linear-gradient(to right bottom ,#f4c9c9 ,#312e2e);
-    background: rgba(0,0,0,0.0);
-    border-radius: 100rem;
-  
-  }
-  .playlist::-webkit-scrollbar-track{
-    background-color: #333;
-    border-radius: 100rem;
-    background-image:linear-gradient(to  bottom ,#ecefeb ,#439941);
-    background: rgba(0,0,0,0.0);
-    
-  }
-  
-  .song {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-    background: rgba(0,0,0,0.2);
-    padding: 8px 16px;
-    border-radius: 5px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-    
-    
-  }
-  
-  .song.active {
-    background-color: var(--primary-color);
-    
-  }
-  
-  .song:active {
-    opacity: 0.8;
-  }
-  
-  .song.active .option,
-  .song.active .author,
-  .song.active .title {
-    color: rgb(0, 0, 0);
-  }
-  
-  .song .thumb {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-size: cover;
-    margin: 0 8px;
-  }
-  
-  .song .body {
-    flex: 1;
-    padding: 0 16px;
-    
-  }
-  
-  .song .title {
-    font-size: 18px;
-    color: var(--text-color);
-  }
-  
-  .song .author {
-    font-size: 12px;
-    color: #999;
-  }
-  
-  .song .option {
-    padding: 16px 8px;
-    color: #999;
-    font-size: 18px;
-  }
-  
+body {
+  background-color: #f5f5f5;
+  background-image: url("/image/A\ Bust\ With\ a\ Skull\ Mask\ and\ Neon\ Lights\ OC\ wallpaper\ in\ 1920x1080\ resolution.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
 
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+}
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.player {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 16px 16px 14px;
+ background: rgba(0,0,0,0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h4 {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+header h2 {
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+
+/* CD */
+.cd-thumb {
+  display: flex;
+  margin-top: 0px;;
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+} 
+.cd {
+  display: flex;
+  margin: auto;
+  width: 200px;
+  margin-left: 90px;
+  margin-top: 0%;
+
+}
+.cdquay {
+  padding: 16px 16px 14px;
+ 
+  position: fixed;
+  top: 400;
+  height: 100%;
+  width: 100%;
+  max-width: 480px;
+  
+}
+
+/* CONTROL */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+
+.control .btn {
+  color: rgb(0, 0, 0);
+  padding: 18px;
+  font-size: 18px;
+}
+
+.control .btn.active {
+  color: #f5f5f5;
+}
+/* nut play */
+.control .btn-toggle-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+/* thanh chạy nhạc */
+.progress {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #d3d3d3;
+  outline: none;
+  border-radius: 100rem;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto; 
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background-image: url("../image/tronhac-removebg-preview.png");
+  filter: hue-rotate(190deg);
+  border-radius: 100rem;
+  cursor: pointer; 
+  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto; 
+}
+
+/* PLAYLIST */
+.playlist {
+  width: 900px;
+  height: 312px;
+  margin-top: -270px;
+  margin-left: 370px;
+  padding: 12px;
+  overflow-Y:scroll;
+}
+/* chỉnh cuộn chột cho danh sách bài hát playlit*/
+.playlist::-webkit-scrollbar {
+  width: 10px;
+}
+.playlist::-webkit-scrollbar-thumb{
+  background-image:linear-gradient(to right bottom ,#f4c9c9 ,#312e2e);
+  background: rgba(0,0,0,0.0);
+  border-radius: 100rem;
+
+}
+.playlist::-webkit-scrollbar-track{
+  background-color: #333;
+  border-radius: 100rem;
+  background-image:linear-gradient(to  bottom ,#ecefeb ,#439941);
+  background: rgba(0,0,0,0.0);
+  
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background: rgba(0,0,0,0.2);
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  
+  
+}
+
+.song.active {
+  background-color: var(--primary-color);
+  
+}
+
+.song:active {
+  opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+  color: rgb(0, 0, 0);
+}
+
+.song .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+  
+}
+
+.song .title {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+}
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .thanhduy {
- min-height: 100vh;
- display: flex; 
- justify-content: center;
- align-items: center;
- flex-wrap: wrap;
- margin-top: -100px;
- 
+min-height: 100vh;
+display: flex; 
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+margin-top: -100px;
+
 }
 
- a:hover {
-    color: #000;
-    background: #7fffd4;
-    box-shadow: 0 0 10px #7fffd4,
-                0 0 25px #7fffd4,
-                0 0 50px #7fffd4;
- }
- a:nth-child(2){
-    filter: hue-rotate(120deg);
- }
- a:nth-child(3){
-    filter: hue-rotate(250deg);
- }
- a:nth-child(4){
-    filter: hue-rotate(320deg);
- }
- a{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 80px;
-  font-size: 2em;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px #a9fe00;
-  font-family: sans-serif;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 30px;
-  overflow: hidden;
-  -webkit-box-reflect:  below 20px linear-gradlient(transparent,#0005);
-  transform: 0.5s;
-  cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
+a:hover {
+  color: #000;
+  background: #7fffd4;
+  box-shadow: 0 0 10px #7fffd4,
+              0 0 25px #7fffd4,
+              0 0 50px #7fffd4;
 }
- a span:first-child {
-    position: absolute ;
-    width: 100%;
-    height: 2px;
-    top : 0;
-    left :-100% ;
-    background: linear-gradient( to right , transparent , #7fffd4);
-    animation: toRight linear 2s infinite ; 
+a:nth-child(2){
+  filter: hue-rotate(120deg);
 }
-  
- a span:nth-child(2) {
-    position: absolute ;
-    width: 2%;
-    height: 100%;
-    top : -100%;
-    right: 0;
-    background: linear-gradient( to bottom , transparent , #7fffd4);
-    animation: toBottom linear 2s infinite ; 
-    animation-delay: 1s;
+a:nth-child(3){
+  filter: hue-rotate(250deg);
+}
+a:nth-child(4){
+  filter: hue-rotate(320deg);
+}
+a{
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 300px;
+height: 80px;
+font-size: 2em;
+font-weight: bold;
+text-shadow: 2px 2px 4px #a9fe00;
+font-family: sans-serif;
+color: rgb(255, 255, 255);
+text-decoration: none;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin: 30px;
+overflow: hidden;
+-webkit-box-reflect:  below 20px linear-gradlient(transparent,#0005);
+transform: 0.5s;
+cursor: url("../image/con-tro-hinh-anh-removebg-preview.png"), auto;
+}
+a span:first-child {
+  position: absolute ;
+  width: 100%;
+  height: 2px;
+  top : 0;
+  left :-100% ;
+  background: linear-gradient( to right , transparent , #7fffd4);
+  animation: toRight linear 2s infinite ; 
 }
 
- a span:nth-child(3) {
-    position: absolute ;
-    width: 100%;
-    height: 2px;
-    bottom : 0;
-    right : 100% ;
-    background: linear-gradient( to left, transparent , #7fffd4);
-    animation: toLeft linear 2s infinite ;  
+a span:nth-child(2) {
+  position: absolute ;
+  width: 2%;
+  height: 100%;
+  top : -100%;
+  right: 0;
+  background: linear-gradient( to bottom , transparent , #7fffd4);
+  animation: toBottom linear 2s infinite ; 
+  animation-delay: 1s;
 }
- a span:nth-child(4) {
-    position: absolute ;
-    width: 2px;
-    height: 100%;
-    bottom: -100%;
-    left : 0 ;
-    background: linear-gradient( to top , transparent , #7fffd4);
-    animation: toTop linear 2s infinite ;  
-    animation-delay: 1s;
+
+a span:nth-child(3) {
+  position: absolute ;
+  width: 100%;
+  height: 2px;
+  bottom : 0;
+  right : 100% ;
+  background: linear-gradient( to left, transparent , #7fffd4);
+  animation: toLeft linear 2s infinite ;  
+}
+a span:nth-child(4) {
+  position: absolute ;
+  width: 2px;
+  height: 100%;
+  bottom: -100%;
+  left : 0 ;
+  background: linear-gradient( to top , transparent , #7fffd4);
+  animation: toTop linear 2s infinite ;  
+  animation-delay: 1s;
 }
 @keyframes toRight {
-    0% {
-        left:-100%;
-    }
-    100%{
-        left: 100% ;
-    }
+  0% {
+      left:-100%;
+  }
+  100%{
+      left: 100% ;
+  }
 }
 @keyframes toBottom {
-    0% {
-        top:-100%;
-    }
-    100%{
-        top: 100% ;
-    }
+  0% {
+      top:-100%;
+  }
+  100%{
+      top: 100% ;
+  }
 }
 @keyframes toLeft {
-    0% {
-        right:-100%;
-    }
-    100%{
-        right: 100% ;
-    }
+  0% {
+      right:-100%;
+  }
+  100%{
+      right: 100% ;
+  }
 }
 @keyframes toTop {
-    0% {
-        bottom:-100%;
-    }
-    100%{
-        bottom: 100% ;
-    }
+  0% {
+      bottom:-100%;
+  }
+  100%{
+      bottom: 100% ;
+  }
 }
