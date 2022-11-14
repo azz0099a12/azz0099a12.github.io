@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tram Nhac Buon</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
@@ -594,4 +595,602 @@ app.start();
 </script>
 
 </body>
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tram Nhac Buon</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="css/lyly3.css" rel="stylesheet">
+<html>
+<body>
+
+  <div class="heart">
+  <div class="left"></div> 
+  <div class="right"></div> 
+</div>
+
+</div>    
+ <!-- CD -->
+ <div class="cdquay">
+   <div class="cd">
+     <div class="cd-thumb">
+     </div>
+   </div>
+ </div>
+<div class="player">
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <!-- Header -->
+    <header>
+      <h4>Now playing:</h4> <br>
+      <h2>String 57th & 9th</h2>
+    </header>
+    <!-- Control -->
+    <div class="control">
+      <div class="btn btn-repeat">
+        <i class="fas fa-redo"></i>
+      </div>
+      <div class="btn btn-prev">
+        <i>
+          <img src="../image/webkiuc/nutchuyentrai.png" alt="" />
+        </i>
+      </div>
+      <div class="btn btn-toggle-play">
+        <i class="fas fa-pause icon-pause">
+          <img src="../image/webkiuc/nutplay1.png" alt="" />
+        </i>
+        <i class="fas fa-play icon-play">
+          <img src="../image/webkiuc/nutpause1.png" alt="" />
+        </i>
+      </div>
+      <div class="btn btn-next">
+        <i >
+          <img src="../image/webkiuc/nutchuyenphai.png" alt="" />
+        </i>
+      </div>
+      <div class="btn btn-random">
+        <i class="fas fa-random"></i>
+      </div>
+    </div>
+
+    <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+
+    <audio id="audio" src=""></audio>
+  </div>
+</div>
+  <!-- Playlist -->
+  <div class="playlist">
+  </div>
+
+
+<!-- Design from: https://static.collectui.com/shots/3671744/musicloud-revolutionary-app-for-music-streaming-large -->
+<script>
+  // Một số bài hát có thể bị lỗi do liên kết bị hỏng. Vui lòng thay thế liên kết khác để có thể phát
+// Some songs may be faulty due to broken links. Please replace another link so that it can be played
+
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+const PlAYER_STORAGE_KEY = "F8_PLAYER";
+
+const player = $(".player");
+const cd = $(".cd");
+const heading = $("header h2");
+const cdThumb = $(".cd-thumb");
+const audio = $("#audio");
+const playBtn = $(".btn-toggle-play");
+const progress = $("#progress");
+const prevBtn = $(".btn-prev");
+const nextBtn = $(".btn-next");
+const randomBtn = $(".btn-random");
+const repeatBtn = $(".btn-repeat");
+const playlist = $(".playlist");
+
+const app = {
+  currentIndex: 0,
+  isPlaying: false,
+  isRandom: false,
+  isRepeat: false,
+  config: {},
+  // (1/2) Uncomment the line below to use localStorage
+  // config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
+  songs: [
+    {
+      name: "Guitar Chill",
+      singer: "TikTok",
+      path: "../nhac1/nhacchill/guitarchill.mp3",
+      image: "https://i.pinimg.com/564x/13/11/a0/1311a00f49c7266d8e86ef03afc0f9fe.jpg"
+    },
+    {
+      name: "Điều Em Lo Sợ",
+      singer: "LEE Phượng",
+      path: "../nhac1/nhacchill/dieuemloso.mp3",
+      image:
+        "https://i.pinimg.com/564x/f0/ac/05/f0ac057f309e58947bdac33e386c0890.jpg"
+    },
+    {
+      name: "Câu Hứa Chưa Vẹn Tròn",
+      singer: "Phát Huy T4",
+      path:"../nhac1/nhacchill/cauhuachuaventron.mp3",
+      image: "https://i.pinimg.com/564x/b1/36/a6/b136a64103637d80e4adfb138720b918.jpg"
+    },
+    {
+      name: "Yêu Người Có Ước Mơ",
+      singer: "Bùi TRường Linh",
+      path: "../nhac1/nhacchill/yeunguoicouocmo.mp3",
+      image: "https://i.pinimg.com/564x/b4/54/49/b454491426217e9e6d37321ceaa8dbe3.jpg"
+    },
+    {
+      name: "Tâm Sự Với Người Lạ",
+      singer: "Tiên COOKIE",
+      path: "../nhac1/nhacchill/tamsuvoinguoila.mp3",
+      image:
+        "https://i.pinimg.com/564x/14/87/91/148791dd1b995ecd68031b0187f8183f.jpg"
+    },
+    {
+      name: "Đó Chỉ Là Thành Phố Của Anh",
+      singer: "Lux-Rap",
+      path:
+        "../nhac1/nhacchill/dochilathanhphocuaanh.mp3",
+      image:
+        "https://i.pinimg.com/564x/89/d0/7a/89d07ae231744d61e1197834f648e922.jpg"
+    },
+    {
+      name: "Đổi Hạnh Phúc Lấy Cô Đơn",
+      singer: "Song Luân",
+      path: "../nhac1/nhacchill/doihanhphuclaycodon.mp3",
+      image:
+        "https://i.pinimg.com/564x/7e/45/22/7e4522312526fd290f85f6f44fdbacb4.jpg"
+    },
+    {
+      name: "Thuận Theo Ý Trời",
+      singer: "Bùi Anh Tuấn",
+      path: "../nhac1/nhacchill/thuantheoytroi.mp3",
+      image:
+        "https://i.pinimg.com/564x/2c/09/82/2c098295edd31f505a7256d779ac5ccf.jpg"
+    },
+    {
+      name: "Như Anh Đã Mong Chờ",
+      singer: " Hari Won",
+      path: "../nhac1/nhacchill/nhuanhdamongcho.mp3",
+      image:
+        "https://i.pinimg.com/564x/a4/6c/c6/a46cc679f5dc4792be02d5fc460ede57.jpg"
+    },
+    {
+      name: "Anti-Hero",
+      singer: "Taylor Swift",
+      path: "../nhac1/nhacchill/antihero.mp3",
+      image:
+        "https://i.pinimg.com/564x/f3/89/b2/f389b2ffb83bd48d384a72e067d27efd.jpg"
+    },
+   
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    },
+    {
+      name: "Feeling You",
+      singer: "Raftaar x Harjas",
+      path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+      image:
+        "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
+    }
+  ],
+  setConfig: function (key, value) {
+    this.config[key] = value;
+    // (2/2) Uncomment the line below to use localStorage
+    // localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
+  },
+  render: function () {
+    const htmls = this.songs.map((song, index) => {
+      return `
+                        <div class="song ${
+                          index === this.currentIndex ? "active" : ""
+                        }" data-index="${index}">
+                            <div class="thumb"
+                                style="background-image: url('${song.image}')">
+                            </div>
+                            <div class="body">
+                                <h3 class="title">${song.name}</h3>
+                                <p class="author">${song.singer}</p>
+                            </div>
+                            <div class="option">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                        </div>
+                    `;
+    });
+    playlist.innerHTML = htmls.join("");
+  },
+  defineProperties: function () {
+    Object.defineProperty(this, "currentSong", {
+      get: function () {
+        return this.songs[this.currentIndex];
+      }
+    });
+  },
+  handleEvents: function () {
+    const _this = this;
+    const cdWidth = cd.offsetWidth;
+
+    // Xử lý CD quay / dừng
+    // Handle CD spins / stops
+    /*const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
+      duration: 10000, // 10 seconds
+      iterations: Infinity
+    });
+    cdThumbAnimate.pause(); */
+
+     /* // Xử lý phóng to / thu nhỏ CD
+    // Handles CD enlargement / reduction
+    document.onscroll = function () {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const newCdWidth = cdWidth - scrollTop;
+      cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
+      cd.style.opacity = newCdWidth / cdWidth;
+    };
+   */
+    // Xử lý khi click play
+    // Handle when click play
+    playBtn.onclick = function () {
+      if (_this.isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+    };
+
+    // Khi song được play
+    // When the song is played
+    audio.onplay = function () {
+      _this.isPlaying = true;
+      player.classList.add("playing");
+      cdThumbAnimate.play();
+    };
+
+    // Khi song bị pause
+    // When the song is pause
+    audio.onpause = function () {
+      _this.isPlaying = false;
+      player.classList.remove("playing");
+      cdThumbAnimate.pause();
+    };
+
+    // Khi tiến độ bài hát thay đổi
+    // When the song progress changes
+    audio.ontimeupdate = function () {
+      if (audio.duration) {
+        const progressPercent = Math.floor(
+          (audio.currentTime / audio.duration) * 100
+        );
+        progress.value = progressPercent;
+      }
+    };
+
+    // Xử lý khi tua song
+    // Handling when seek
+    progress.onchange = function (e) {
+      const seekTime = (audio.duration / 100) * e.target.value;
+      audio.currentTime = seekTime;
+    };
+
+    // Khi next song
+    // When next song
+    nextBtn.onclick = function () {
+      if (_this.isRandom) {
+        _this.playRandomSong();
+      } else {
+        _this.nextSong();
+      }
+      audio.play();
+      _this.render();
+      _this.scrollToActiveSong();
+    };
+
+    // Khi prev song
+    // When prev song
+    prevBtn.onclick = function () {
+      if (_this.isRandom) {
+        _this.playRandomSong();
+      } else {
+        _this.prevSong();
+      }
+      audio.play();
+      _this.render();
+      _this.scrollToActiveSong();
+    };
+
+    // Xử lý bật / tắt random song
+    // Handling on / off random song
+    randomBtn.onclick = function (e) {
+      _this.isRandom = !_this.isRandom;
+      _this.setConfig("isRandom", _this.isRandom);
+      randomBtn.classList.toggle("active", _this.isRandom);
+    };
+
+    // Xử lý lặp lại một song
+    // Single-parallel repeat processing
+    repeatBtn.onclick = function (e) {
+      _this.isRepeat = !_this.isRepeat;
+      _this.setConfig("isRepeat", _this.isRepeat);
+      repeatBtn.classList.toggle("active", _this.isRepeat);
+    };
+
+    // Xử lý next song khi audio ended
+    // Handle next song when audio ended
+    audio.onended = function () {
+      if (_this.isRepeat) {
+        audio.play();
+      } else {
+        nextBtn.click();
+      }
+    };
+
+    // Lắng nghe hành vi click vào playlist
+    // Listen to playlist clicks
+    playlist.onclick = function (e) {
+      const songNode = e.target.closest(".song:not(.active)");
+
+      if (songNode || e.target.closest(".option")) {
+        // Xử lý khi click vào song
+        // Handle when clicking on the song
+        if (songNode) {
+          _this.currentIndex = Number(songNode.dataset.index);
+          _this.loadCurrentSong();
+          _this.render();
+          audio.play();
+        }
+
+        // Xử lý khi click vào song option
+        // Handle when clicking on the song option
+        if (e.target.closest(".option")) {
+        }
+      }
+    };
+  },
+  scrollToActiveSong: function () {
+    setTimeout(() => {
+      $(".song.active").scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    }, 300);
+  },
+  loadCurrentSong: function () {
+    heading.textContent = this.currentSong.name;
+    cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
+    audio.src = this.currentSong.path;
+  },
+  loadConfig: function () {
+    this.isRandom = this.config.isRandom;
+    this.isRepeat = this.config.isRepeat;
+  },
+  nextSong: function () {
+    this.currentIndex++;
+    if (this.currentIndex >= this.songs.length) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+  },
+  prevSong: function () {
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.songs.length - 1;
+    }
+    this.loadCurrentSong();
+  },
+  playRandomSong: function () {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * this.songs.length);
+    } while (newIndex === this.currentIndex);
+
+    this.currentIndex = newIndex;
+    this.loadCurrentSong();
+  },
+  start: function () {
+    // Gán cấu hình từ config vào ứng dụng
+    // Assign configuration from config to application
+    this.loadConfig();
+
+    // Định nghĩa các thuộc tính cho object
+    // Defines properties for the object
+    this.defineProperties();
+
+    // Lắng nghe / xử lý các sự kiện (DOM events)
+    // Listening / handling events (DOM events)
+    this.handleEvents();
+
+    // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
+    // Load the first song information into the UI when running the app
+    this.loadCurrentSong();
+
+    // Render playlist
+    this.render();
+
+    // Hiển thị trạng thái ban đầu của button repeat & random
+    // Display the initial state of the repeat & random button
+    randomBtn.classList.toggle("active", _this.isRandom);
+    repeatBtn.classList.toggle("active", _this.isRepeat);
+  }
+};
+app.start();
+
+</script>
+<div class="loading">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div class="heart">
+  <div class="left"></div> 
+  <div class="right"></div> 
+</div>
+<div class="box">
+  <div class="image">
+    <img id="img" onclick="changeimage()" src="https://i.pinimg.com/564x/51/11/5d/51115d4a4f54493086c61af195857a3b.jpg" alt="" />
+  </div>
+</div>
+<div class="box1">
+  <div class="image">
+    <img id="img1" onclick="changeimage1()" src="https://i.pinimg.com/564x/af/53/f3/af53f31728b2a2647714fac478bf3a70.jpg" alt="" />
+  </div>
+</div>
+<div class="box2">
+  <div class="image">
+    <img id="img2" onclick="changeimage2()" src="https://i.pinimg.com/750x/9d/d3/36/9dd336c6cba1700dd1da531adbf6639b.jpg" alt="" />
+  </div>
+</div>
+<div class="box3">
+  <div class="image">
+    <img id="img3" onclick="changeimage3()" src="https://i.pinimg.com/736x/96/bc/24/96bc246750ef249ea4a8eb3ee128be66.jpg" alt="" />
+  </div>
+</div>
+
+<script>
+  var anh=0;
+    function changeimage(){
+    var imgs =["https://i.pinimg.com/564x/2d/70/10/2d70104cdf344d7a6ed47e70dd48e9ea.jpg",
+    "https://i.pinimg.com/564x/0a/db/76/0adb76985dbb6b9ccce0fee501561b63.jpg",
+    "https://i.pinimg.com/736x/f9/fb/d5/f9fbd5a811ad3d12d308be8c610ebc45.jpg",
+    "https://i.pinimg.com/564x/01/f4/a9/01f4a9abb2073541833c090c1e49ce29.jpg",
+    "https://i.pinimg.com/750x/ab/57/79/ab57799b4feecb28d205c4f85917cab1.jpg",
+    "https://i.pinimg.com/564x/12/df/09/12df094be4fe1d81e9b4cfba0e4f7feb.jpg",
+    "https://i.pinimg.com/564x/10/07/d9/1007d926461e81d8d3aa92f004d09a5b.jpg",
+    "https://i.pinimg.com/564x/b7/f1/c3/b7f1c325253e6d7e1b9bd101cdab8a12.jpg",
+    "https://i.pinimg.com/564x/7f/8f/0c/7f8f0cfecf19303512aa1dc55b4850d5.jpg",
+    "https://i.pinimg.com/564x/d6/5f/28/d65f2895cf9876addb43e50a9d95eebd.jpg"  ];
+    document.getElementById('img').src = imgs[anh];
+     anh = Math.floor(Math.random() * 11);
+    if(anh==10){
+      anh=0;
+    }
+  }
+  setInterval(changeimage,4500);
+</script>
+
+<script>
+  var anh1=0;
+    function changeimage1(){
+    var img1s =["https://i.pinimg.com/564x/87/9d/91/879d91de0b525ac46ab7c67b0400763f.jpg",
+    "https://i.pinimg.com/736x/88/80/11/8880114b1fdf4cfa3ddd1481d98ca951.jpg",
+    "https://i.pinimg.com/564x/87/9d/5b/879d5b35361bbfcad4a510f2862b4301.jpg",
+    "https://i.pinimg.com/750x/a5/4e/58/a54e5884762635e78f26165efe82f564.jpg",
+    "https://i.pinimg.com/564x/6b/e8/c7/6be8c74dccfe00b7971897fa73d47bbd.jpg",
+    "https://i.pinimg.com/750x/f9/26/0c/f9260ceb84abe3e36ac1c174bdf996da.jpg",
+    "https://i.pinimg.com/750x/7f/9e/ff/7f9eff1c8a030008ea8063d8ddbad0b2.jpg",
+    "https://i.pinimg.com/564x/47/76/68/4776681893768ab66352eb2efe131733.jpg",
+    "https://i.pinimg.com/564x/38/2c/2a/382c2a47f116df1efc40d8f779ebc3a9.jpg",
+    "https://i.pinimg.com/564x/e7/73/16/e773168ae82920060c2690de6db382a1.jpg"];
+    document.getElementById('img1').src = img1s[anh1];
+    anh1 = Math.floor(Math.random() * 11);
+    if(anh1==10){
+      anh1=0;
+    }
+  }
+  setInterval(changeimage1,6000);
+</script>
+
+<script>
+  var anh2=0;
+    function changeimage2(){
+    var img2s =["https://i.pinimg.com/564x/29/fb/dc/29fbdc90d3928fecb373c634460abbd2.jpg",
+    "https://i.pinimg.com/564x/84/bd/8d/84bd8d464a2e2dbc3a22865dcdbfd607.jpg",
+    "https://i.pinimg.com/564x/0c/f6/fe/0cf6fe0442428cf646d6138d3760dd3f.jpg",
+    "https://i.pinimg.com/564x/5a/9d/82/5a9d82d93439863045893db086fd82b5.jpg",
+    "https://i.pinimg.com/564x/1a/ee/da/1aeedac59c195be2f2291784505129c7.jpg",
+    "https://i.pinimg.com/564x/e0/35/bb/e035bb0afb42e9edfc8f7b212716aa80.jpg",
+    "https://i.pinimg.com/564x/0a/8a/f0/0a8af0fcdf69571c905c44693a8c7522.jpg",
+    "https://i.pinimg.com/750x/44/df/e4/44dfe493b124979ae98602692daf66a9.jpg",
+    "https://i.pinimg.com/564x/c7/cb/06/c7cb066bbf34695a3e50ace525bebc07.jpg",
+    "https://i.pinimg.com/564x/f3/24/dc/f324dcbb200a856c702a228456031a62.jpg",  ];
+    document.getElementById('img2').src = img2s[anh2];
+    anh2 = Math.floor(Math.random() * 11);
+    if(anh2==10){
+      anh2=0;
+    }
+  }
+  setInterval(changeimage2,10700);
+</script>
+
+<script>
+  var anh3=0;
+    function changeimage3(){
+    var img3s =["https://i.pinimg.com/564x/00/84/c0/0084c06513a583f03fd289ef8ac02a74.jpg",
+    "https://i.pinimg.com/564x/88/53/5d/88535d1e08e039768458b627c7a19e2e.jpg",
+    "https://i.pinimg.com/564x/2e/18/96/2e1896f556ddc53e1b5a05942081460f.jpg",
+    "https://i.pinimg.com/564x/cb/e2/b3/cbe2b387b7bf1e85e4e62a9f3e81f512.jpg",
+    "https://i.pinimg.com/564x/b2/39/eb/b239eb939babb4553cf7d80c51458a21.jpg",
+    "https://i.pinimg.com/564x/31/0b/ba/310bbae812281f8758f188db056e79b5.jpg",
+    "https://i.pinimg.com/564x/18/b4/43/18b443d457578896e2601c1153ebdc86.jpg",
+    "https://i.pinimg.com/564x/6f/97/95/6f97958b3c996b03413b8dc0dee7bbc2.jpg",
+    "https://i.pinimg.com/736x/8f/a0/73/8fa0732d135add9371a718f1d246b628.jpg",
+    "https://i.pinimg.com/564x/8b/74/f1/8b74f1675aa60ae31d6dc1019bfefa5b.jpg"];
+    document.getElementById('img3').src = img3s[anh3];
+    anh3 = Math.floor(Math.random() * 11);
+    if(anh3==10){
+      anh3=0;
+    }
+  }
+  setInterval(changeimage3,8300);
+</script>
+
+</body>
+>>>>>>> 8d6d428655b9428c2afd312cff4c8f02d385cb6e
 </html>
